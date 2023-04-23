@@ -1,29 +1,26 @@
-from meal_planner.core.ingredients import Ingredient
-from meal_planner.core.meals import Meal, Meals
-from meal_planner.core.planner import Planner
+from src.core.ingredients import Ingredient
+from src.core.meals import Meal, Meals
+from src.core.planner import Planner
+from src.utils.config import Config
+from src.utils.sql_utils import SQLManager
 
 if __name__ == "__main__":
-    i1 = Ingredient(name="Cheese", amount=1.0, unit="gram")
-    i2 = Ingredient(name="Bacon", amount=1.0, unit="gram")
-    i3 = Ingredient(name="Bread", amount=1.0, unit="gram")
-    i4 = Ingredient(name="Bread", amount=1.0, unit="gram")
-    i5 = Ingredient(name="Bread", amount=1.0, unit="gram")
-    i6 = Ingredient(name="Bread", amount=1.0, unit="gram")
-    i7 = Ingredient(name="Bread", amount=1.0, unit="gram")
+    conf = Config()
+    config = conf.create_config()
+    sql_Manager = SQLManager()
+    conn = sql_Manager.create_db(config["db_path"])
 
-    m1 = Meal("Frozen Pizza", ingredients=[i1, i2, i4], portion=[4])
-    m2 = Meal("Stuffed Pasta", ingredients=[i6, i2, i3], portion=[4])
-    m3 = Meal("Burger", ingredients=[i1, i4, i5], portion=[4])
-    m4 = Meal("Stir Fry", ingredients=[i1, i2, i3], portion=[4])
-    m5 = Meal("Bolognase", ingredients=[i1, i4, i5], portion=[4])
-    m6 = Meal("Chicken Wraps", ingredients=[i6, i5, i7], portion=[4])
-    m7 = Meal("Parma Ham Pasta", ingredients=[i2, i4, i5], portion=[4])
-    m8 = Meal("Teriaki Salmon", ingredients=[i1, i4, i3], portion=[4])
+    # Create/Update/Delete Meals:
+    meal_input = input("Would you like to 'Add'/'Update'/'Delete' meals or 'skip': ")
+    if meal_input is True:
+        print("ing add update")
 
-    meals = Meals(meal_list=[m1, m2, m3, m4, m5, m6, m7])
+    # Plan meals
+    # read meals from meal DB
+    # meals = Meals(1, 2, 3, 4, 5, 6)
+    # planner = Planner(meals, 7)
+    # planned_meals = planner.generate_meal_plan()
 
-    planner = Planner(meals, 7)
-    meals = planner.generate_meal_plan()
-
-    for m in meals:
-        print(m.name)
+    # # Display "Read" planned meals to user
+    # for planned_meal in planned_meals:
+    #     print(planned_meal.name)

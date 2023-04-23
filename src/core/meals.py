@@ -14,9 +14,3 @@ class Meal:
 @dataclass
 class Meals:
     meal_list: List[Meal]
-
-    def add_meal(self):
-        pass
-
-    def remove_meal(self):
-        pass
