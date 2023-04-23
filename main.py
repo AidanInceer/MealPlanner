@@ -23,7 +23,7 @@ if __name__ == "__main__":
     meals = Meals(meal_list=[m1, m2, m3, m4, m5, m6, m7])
 
     planner = Planner(meals, 7)
-    meals = planner.generate_meal_plan()
+    planned_meals = planner.generate_meal_plan()
 
-    for m in meals:
-        print(m.name)
+    for planned_meal in planned_meals:
+        print(planned_meal.name)
