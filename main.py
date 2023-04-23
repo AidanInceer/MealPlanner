@@ -1,6 +1,6 @@
-from meal_planner.core.ingredients import Ingredient
-from meal_planner.core.meals import Meal, Meals
-from meal_planner.core.planner import Planner
+from src.core.ingredients import Ingredient
+from src.core.meals import Meal, Meals
+from src.core.planner import Planner
 
 if __name__ == "__main__":
     i1 = Ingredient(name="Cheese", amount=1.0, unit="gram")
