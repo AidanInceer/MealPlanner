@@ -1,6 +1,6 @@
-from meal_planner.ingredients import Ingredient
-from meal_planner.meals import Meal, Meals
-from meal_planner.planner import Planner
+from meal_planner.core.ingredients import Ingredient
+from meal_planner.core.meals import Meal, Meals
+from meal_planner.core.planner import Planner
 
 if __name__ == "__main__":
     i1 = Ingredient(name="Cheese", amount=1.0, unit="gram")
@@ -22,5 +22,8 @@ if __name__ == "__main__":
 
     meals = Meals(meal_list=[m1, m2, m3, m4, m5, m6, m7])
 
-    planner = Planner(meals)
-    planner.generate_meal_plan(7)
+    planner = Planner(meals, 7)
+    meals = planner.generate_meal_plan()
+
+    for m in meals:
+        print(m.name)
